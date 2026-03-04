@@ -1,0 +1,136 @@
+Task: Build a clean, stakeholder-oriented analytics dashboard frontend
+for a telemetry analytics platform.
+
+Stack:
+- Use Streamlit OR Dash (choose one and implement fully).
+- The frontend must NOT perform heavy aggregations.
+- All data must be requested from backend pre-aggregated endpoints.
+
+Architecture Rules:
+- Assume backend provides REST API endpoints returning aggregated JSON.
+- Frontend should only:
+    - Fetch data
+    - Apply filters
+    - Render charts
+- No raw telemetry processing in frontend.
+
+----------------------------------------
+DATA ENDPOINT ASSUMPTIONS
+----------------------------------------
+
+Assume backend provides:
+
+GET /api/kpi?role=&start_date=&end_date=&project_type=
+Response:
+{
+  "total_users": int,
+  "total_sessions": int,
+  "total_tokens": int,
+  "avg_session_duration": float
+}
+
+GET /api/token-trends
+Response:
+{
+  "daily_tokens": [{ "date": "...", "tokens": int }],
+  "tokens_by_role": [{ "role": "...", "tokens": int }]
+}
+
+GET /api/activity-patterns
+Response:
+{
+  "sessions_per_day": [{ "date": "...", "sessions": int }],
+  "peak_hours": [{ "hour": int, "sessions": int }],
+  "hourly_heatmap": [[...]]  // 24 x 7 matrix
+}
+
+GET /api/user-behavior
+Response:
+{
+  "top_users": [{ "user": "...", "tokens": int }],
+  "avg_duration_by_role": [{ "role": "...", "duration": float }],
+  "code_generation_frequency": [{ "date": "...", "count": int }]
+}
+
+----------------------------------------
+LAYOUT STRUCTURE
+----------------------------------------
+
+1. Global Filter Panel (Top)
+   - Role dropdown
+   - Date range picker
+   - Project type dropdown
+   - Apply button
+
+2. KPI Section (Top row)
+   - Total Users (card)
+   - Total Sessions (card)
+   - Total Tokens Consumed (card)
+   - Avg Session Duration (card)
+
+3. Token Analytics Section
+   - Line chart: token usage over time
+   - Bar chart: token consumption by user role
+
+4. Activity Patterns Section
+   - Line chart: sessions per day
+   - Bar chart: peak usage hours
+   - Heatmap: activity by hour (24x7)
+
+5. User Behavior Insights
+   - Horizontal bar: top users by tokens
+   - Bar chart: avg session duration per role
+   - Line chart: code generation frequency
+
+----------------------------------------
+CHART TYPE RECOMMENDATIONS
+----------------------------------------
+
+- Time-series → Line chart
+- Distribution by category → Bar chart
+- Ranking → Horizontal bar
+- Hour/day density → Heatmap
+- KPI metrics → Card components with large typography
+
+----------------------------------------
+UX REQUIREMENTS
+----------------------------------------
+
+- Minimalistic design
+- Clear section separation
+- Consistent spacing and typography
+- Responsive layout
+- Loading indicators while fetching
+- Graceful handling of empty states
+- Tooltips on all charts
+- Subtle animations (if supported)
+
+----------------------------------------
+DATA FLOW
+----------------------------------------
+
+On filter change:
+1. Trigger API calls
+2. Refresh all sections
+3. Show loading state during fetch
+4. Handle API errors gracefully
+
+----------------------------------------
+OUTPUT REQUIREMENTS
+----------------------------------------
+
+Generate:
+1. Full frontend implementation code (Streamlit OR Dash).
+2. Modular structure (separate components if possible).
+3. API request abstraction layer.
+4. Clean layout structure.
+5. Commented code.
+6. Example mock API URLs for testing.
+
+The final result must be:
+- Minimal
+- Data-focused
+- Structured for stakeholder presentation
+- Production-ready UI foundation
+
+

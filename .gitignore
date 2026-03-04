@@ -1,0 +1,34 @@
+# Dependencies
+**/node_modules/
+
+# Build outputs
+**/dist/
+**/build/
+**/out/
+
+# Python cache
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Tool caches
+**/.cache/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.vite/
+
+# Logs and temp
+*.log
+*.tmp
+*.bak
+*.old
+
+# OS metadata
+.DS_Store
+Thumbs.db
+._*
+
+# Local env files
+.env
+**/.env
