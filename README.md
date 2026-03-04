@@ -7,7 +7,7 @@ This document reviews the current codebase structure, architecture, runtime flow
 
 ## Project Review Video
 - Review recording: [review.mp4](./review.mp4)
-
+- ![Image](https://github.com/user-attachments/assets/65ae0769-2e82-4e0c-b387-7057b13cd185)
 ## Repository Overview
 Top-level contents:
 
