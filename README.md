@@ -1,8 +1,9 @@
 # Provectus Project: Detailed Technical Review
 
-Frontend: Lovable
-Backend & Database: Claude Sonnet 4.6
+- **Frontend:** Lovable  
+- **Backend & Database:** Claude Sonnet 4.6
 
+  
 ## Scope
 This document reviews the current codebase structure, architecture, runtime flow, setup process, and key risks based on static code inspection.
 
